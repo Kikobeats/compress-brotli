@@ -25,7 +25,7 @@ $ npm install compress-brotli --save
 In case you are not targeting Node.js v11.7.0 or above, you need to install `iltorb` as extra dependency:
 
 ```bash
-$ npm install brotli --save
+$ npm install iltorb --save
 ```
 
 
