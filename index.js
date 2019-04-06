@@ -17,18 +17,14 @@ const createCompress = ({
 } = {}) => {
   if (!enable) return noop
 
-  const compress = hasNativeAPI
-    ? promisify(zlib.brotliCompress)
-    : require('iltorb').compress
+  const compress = hasNativeAPI ? promisify(zlib.brotliCompress) : require('iltorb').compress
 
-  const decompress = hasNativeAPI
-    ? promisify(zlib.brotliDecompress)
-    : require('iltorb').decompress
+  const decompress = hasNativeAPI ? promisify(zlib.brotliDecompress) : require('iltorb').decompress
 
   return {
     compress: async data => {
       if (data === undefined) return data
-      let serializedData = JSON.stringify(data)
+      let serializedData = serialize(data)
       if (!hasNativeAPI) serializedData = Buffer.from(serializedData)
       return compress(serializedData)
     },
