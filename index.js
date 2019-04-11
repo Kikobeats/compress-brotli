@@ -5,15 +5,20 @@ const zlib = require('zlib')
 
 const hasNativeAPI = Boolean(zlib.brotliCompress)
 
+const defaultSerialize = val => Buffer.from(JSON.stringify(val))
+const defaultDeserialize = JSON.parse
+
 const noop = {
-  compress: data => data,
-  decompress: data => data
+  deserialize: defaultDeserialize,
+  serialize: defaultSerialize,
+  decompress: data => data,
+  compress: data => data
 }
 
 const createCompress = ({
   enable = true,
-  serialize = val => Buffer.from(JSON.stringify(val)),
-  deserialize = JSON.parse
+  serialize = defaultSerialize,
+  deserialize = defaultDeserialize
 } = {}) => {
   if (!enable) return noop
 
