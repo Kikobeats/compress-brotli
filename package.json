@@ -2,7 +2,7 @@
   "name": "compress-brotli",
   "description": "Simple cross Node.js inteface for using brotli compression",
   "homepage": "https://nicedoc.io/Kikobeats/compress-brotli",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "index.js",
   "author": {
     "name": "Kiko Beats",
