@@ -18,14 +18,3 @@ const v8 = require('v8')
     t.deepEqual(decompressedData, value)
   })
 })
-
-test('custom serializer/deserializer', async t => {
-  const { compress, decompress } = createCompress({
-    serialize: v8.serialize,
-    deserialize: v8.deserialize
-  })
-  const value = { foo: 'bar', fooz: { foo: 'bar' }, arr: [1, 2, 3, 4] }
-  const compressedData = await compress(value)
-  const decompressedData = await decompress(compressedData)
-  t.deepEqual(decompressedData, value)
-})

@@ -2,24 +2,29 @@
 
 const { promisify } = require('util')
 const zlib = require('zlib')
+const v8 = require('v8')
 
-const hasNativeAPI = Boolean(zlib.brotliCompress)
+const hasBrotli = Boolean(zlib.brotliCompress)
+const hasV8 = Boolean(v8.serialize)
 
 const noop = {
   compress: data => data,
   decompress: data => data
 }
 
+const defaultSerializer = hasV8 ? v8.serialize : val => Buffer.from(JSON.stringify(val))
+const defaultDeserializer = hasV8 ? v8.deserialize : JSON.parse
+
 const createCompress = ({
   enable = true,
-  serialize = val => Buffer.from(JSON.stringify(val)),
-  deserialize = JSON.parse
+  serialize = defaultSerializer,
+  deserialize = defaultDeserializer
 } = {}) => {
   if (!enable) return noop
 
-  const compress = hasNativeAPI ? promisify(zlib.brotliCompress) : require('iltorb').compress
+  const compress = hasBrotli ? promisify(zlib.brotliCompress) : require('iltorb').compress
 
-  const decompress = hasNativeAPI ? promisify(zlib.brotliDecompress) : require('iltorb').decompress
+  const decompress = hasBrotli ? promisify(zlib.brotliDecompress) : require('iltorb').decompress
 
   return {
     compress: async data => {
