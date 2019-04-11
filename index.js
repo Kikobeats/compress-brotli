@@ -12,7 +12,7 @@ const noop = {
 
 const createCompress = ({
   enable = true,
-  serialize = JSON.stringify,
+  serialize = val => Buffer.from(JSON.stringify(val)),
   deserialize = JSON.parse
 } = {}) => {
   if (!enable) return noop
@@ -25,7 +25,6 @@ const createCompress = ({
     compress: async data => {
       if (data === undefined) return data
       let serializedData = serialize(data)
-      if (!hasNativeAPI) serializedData = Buffer.from(serializedData)
       return compress(serializedData)
     },
     decompress: async data => {
