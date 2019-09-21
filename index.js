@@ -18,17 +18,18 @@ const noop = {
 const createCompress = ({
   enable = true,
   serialize = defaultSerialize,
-  deserialize = defaultDeserialize
+  deserialize = defaultDeserialize,
+  iltorb = () => require('iltorb')
 } = {}) => {
   if (!enable) return noop
 
   const compress = hasNativeAPI
     ? promisify(zlib.brotliCompress)
-    : require('iltorb').compress
+    : iltorb().compress
 
   const decompress = hasNativeAPI
     ? promisify(zlib.brotliDecompress)
-    : require('iltorb').decompress
+    : iltorb().decompress
 
   return {
     serialize,
