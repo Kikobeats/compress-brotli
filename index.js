@@ -36,7 +36,7 @@ const createCompress = ({
     deserialize,
     compress: async data => {
       if (data === undefined) return data
-      let serializedData = serialize(data)
+      const serializedData = serialize(data)
       return compress(serializedData)
     },
     decompress: async data => {
