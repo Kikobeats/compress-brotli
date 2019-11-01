@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.1.0](https://github.com/Kikobeats/compress-brotli/compare/v1.0.8...v1.1.0) (2019-11-01)
+
+
+### Features
+
+* add buffer stringify support ([67757a8](https://github.com/Kikobeats/compress-brotli/commit/67757a8e6964aa89aff28bb14d5c474d28d00f86))
+
 ### [1.0.8](https://github.com/Kikobeats/compress-brotli/compare/v1.0.7...v1.0.8) (2019-09-21)
 
 
