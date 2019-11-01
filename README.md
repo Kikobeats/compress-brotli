@@ -52,14 +52,14 @@ If pass disable, it will return a noop compress/decompress methods.
 #### serialize
 
 Type: `function`<br>
-Default: `JSON.stringify`
+Default: `JSONB.stringify`
 
 It determines the serialize method to use before compress the data.
 
 #### deserialize
 
 Type: `function`<br>
-Default: `JSON.parse`
+Default: `JSONB.parse`
 
 It determines the deserialize method to use after decompress the data.
 
