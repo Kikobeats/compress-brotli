@@ -11,10 +11,10 @@
 
 ## Highlights
 
-* No dependencies.
-* Handle edge cases (such as try to compress `undefined`).
-* JSON serialization/deserialization by default.
 * Auto detect Node.js brotli API (`>=11.7.0`).
+* Handle edge cases (such as try to compress `undefined`).
+* JSON serialization/deserialization with Buffer support by default.
+* Easy tu customize (e.g., using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value)).
 
 ## Install
 
@@ -27,7 +27,6 @@ In case you are not targeting Node.js v11.7.0 or above, you need to install `ilt
 ```bash
 $ npm install iltorb --save
 ```
-
 
 ## Usage
 
