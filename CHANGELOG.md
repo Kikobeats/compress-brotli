@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://github.com/Kikobeats/compress-brotli/compare/v1.1.0...v1.2.0) (2019-11-04)
+
+
+### Features
+
+* use json-buffer ([242c865](https://github.com/Kikobeats/compress-brotli/commit/242c865b206706f689fa4dd95b374f1dba49ae6f))
+
 ## [1.1.0](https://github.com/Kikobeats/compress-brotli/compare/v1.0.8...v1.1.0) (2019-11-01)
 
 
