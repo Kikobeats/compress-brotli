@@ -1,8 +1,8 @@
 'use strict'
 
 const { promisify } = require('util')
+const JSONB = require('json-buffer')
 const zlib = require('zlib')
-const JSONB = require('buffer-json')
 
 const hasNativeAPI = Boolean(zlib.brotliCompress)
 const identity = val => val

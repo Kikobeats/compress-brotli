@@ -30,7 +30,7 @@
     "zlib"
   ],
   "dependencies": {
-    "buffer-json": "~2.0.0"
+    "json-buffer": "~3.0.1"
   },
   "devDependencies": {
     "@commitlint/cli": "latest",
