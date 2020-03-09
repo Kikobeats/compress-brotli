@@ -37,6 +37,18 @@ const createCompress = require('compress-brotli')
 const { compress, decompress } = createCompress()
 ```
 
+using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value):
+
+```js
+const createCompress = require('compress-brotli')
+const v8 = require('v8')
+
+const { compress, decompress } = createCompress({
+  serialize: v8.serialize,
+  deserialize = v8.deserialize
+})
+```
+
 ## API
 
 ### compressBrotli([options])
