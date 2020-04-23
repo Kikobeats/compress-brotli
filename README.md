@@ -11,10 +11,10 @@
 
 ## Highlights
 
-* Auto detect Node.js brotli API (`>=11.7.0`).
-* Handle edge cases (such as try to compress `undefined`).
-* JSON serialization/deserialization with Buffer support by default.
-* Easy tu customize (e.g., using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value)).
+- Auto detect Node.js brotli API (`>=11.7.0`).
+- Handle edge cases (such as try to compress `undefined`).
+- JSON serialization/deserialization with Buffer support by default.
+- Easy tu customize (e.g., using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value)).
 
 ## Install
 
@@ -45,7 +45,7 @@ const v8 = require('v8')
 
 const { compress, decompress } = createCompress({
   serialize: v8.serialize,
-  deserialize = v8.deserialize
+  deserialize: v8.deserialize
 })
 ```
 
