@@ -42,12 +42,12 @@
     "finepack": "latest",
     "git-authors-cli": "latest",
     "git-dirty": "latest",
-    "simple-git-hooks": "latest",
     "iltorb": "latest",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
     "prettier-standard": "latest",
+    "simple-git-hooks": "latest",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest"
@@ -79,10 +79,6 @@
       "@commitlint/config-conventional"
     ]
   },
-  "simple-git-hooks": {
-    "commit-msg": "npx commitlint --edit",
-    "pre-commit": "npx lint-staged"
-  },
   "lint-staged": {
     "package.json": [
       "finepack"
@@ -93,5 +89,9 @@
     "*.md": [
       "standard-markdown"
     ]
+  },
+  "simple-git-hooks": {
+    "commit-msg": "npx commitlint --edit",
+    "pre-commit": "npx lint-staged"
   }
 }
