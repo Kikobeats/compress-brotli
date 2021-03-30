@@ -7,11 +7,10 @@
 [![Dev Dependencies Status](https://img.shields.io/david/dev/Kikobeats/compress-brotli.svg?style=flat-square)](https://david-dm.org/Kikobeats/compress-brotli#info=devDependencies)
 [![NPM Status](https://img.shields.io/npm/dm/compress-brotli.svg?style=flat-square)](https://www.npmjs.org/package/compress-brotli)
 
-> Simple cross Node.js inteface for using brotli compression
+> Compress/Decompress using Brotli in a simple way.
 
 ## Highlights
 
-- Auto detect Node.js brotli API (`>=11.7.0`).
 - Handle edge cases (such as try to compress `undefined`).
 - JSON serialization/deserialization with Buffer support by default.
 - Easy tu customize (e.g., using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value)).
@@ -20,12 +19,6 @@
 
 ```bash
 $ npm install compress-brotli --save
-```
-
-In case you are not targeting Node.js v11.7.0 or above, you need to install `iltorb` as extra dependency:
-
-```bash
-$ npm install iltorb --save
 ```
 
 ## Usage

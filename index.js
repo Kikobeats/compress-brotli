@@ -4,7 +4,10 @@ const { promisify } = require('util')
 const JSONB = require('json-buffer')
 const zlib = require('zlib')
 
-const hasNativeAPI = Boolean(zlib.brotliCompress)
+const compress = promisify(zlib.brotliCompress)
+
+const decompress = promisify(zlib.brotliDecompress)
+
 const identity = val => val
 
 const createCompress = ({
@@ -16,14 +19,6 @@ const createCompress = ({
   if (!enable) {
     return { serialize, deserialize, decompress: identity, compress: identity }
   }
-
-  const compress = hasNativeAPI
-    ? promisify(zlib.brotliCompress)
-    : iltorb().compress
-
-  const decompress = hasNativeAPI
-    ? promisify(zlib.brotliDecompress)
-    : iltorb().decompress
 
   return {
     serialize,
@@ -41,3 +36,5 @@ const createCompress = ({
 }
 
 module.exports = createCompress
+module.exports.stringify = JSONB.stringify
+module.exports.parse = JSONB.parse

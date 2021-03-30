@@ -1,8 +1,9 @@
 'use strict'
 
 const test = require('ava')
-const createCompress = require('..')
 const v8 = require('v8')
+
+const createCompress = require('..')
 
 ;[
   ['null', null],
