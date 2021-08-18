@@ -23,14 +23,14 @@ const createCompress = ({
   return {
     serialize,
     deserialize,
-    compress: async data => {
+    compress: async (data, ...options) => {
       if (data === undefined) return data
       const serializedData = serialize(data)
-      return compress(serializedData)
+      return compress(serializedData, ...options)
     },
-    decompress: async data => {
+    decompress: async (data, ...options) => {
       if (data === undefined) return data
-      return deserialize(await decompress(data))
+      return deserialize(await decompress(data, ...options))
     }
   }
 }
