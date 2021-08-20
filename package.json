@@ -48,6 +48,7 @@
     "nyc": "latest",
     "prettier-standard": "latest",
     "simple-git-hooks": "latest",
+    "sinon": "~11.1.2",
     "standard": "latest",
     "standard-markdown": "latest",
     "standard-version": "latest"
