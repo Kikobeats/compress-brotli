@@ -41,6 +41,45 @@ const { compress, decompress } = createCompress({
   deserialize: v8.deserialize
 })
 ```
+customizing compress options:
+```js
+const createCompress = require('compress-brotli')
+
+const {
+  constants: {
+    BROTLI_MODE_TEXT,
+    BROTLI_PARAM_MODE,
+    BROTLI_PARAM_QUALITY
+  }
+} = require('zlib')
+
+// Provide factory level default options
+const { compress, decompress } = createCompress({
+  compressOptions: {
+    chunkSize: 1024,
+    parameters: {
+      [BROTLI_PARAM_MODE]: BROTLI_MODE_TEXT
+    }
+  },
+  decompressOptions: {
+    chunkSize: 1024,
+    parameters: {
+      [BROTLI_PARAM_MODE]: BROTLI_MODE_TEXT
+    }
+  }
+})
+const data = 'whatever'
+
+// Override call level options (deep merge for parameters)
+const compressed = compress(data, {
+  parameters: {
+    [BROTLI_PARAM_QUALITY]: 7
+  }
+})
+decompress(compressed, {
+  chunkSize: 2048
+})
+```
 
 ## API
 
@@ -66,6 +105,20 @@ Type: `function`<br>
 Default: `JSONB.parse`
 
 It determines the deserialize method to use after decompress the data.
+
+#### compressOptions
+
+Type: `zlib.BrotliOptions`<br>
+Default: `{}` i.e. default *zlib.brotliCompress* options will be used
+
+It  defines default options to be used in wrapped *zlib.brotliCompress* call
+
+#### decompressOptions
+
+Type: `zlib.BrotliOptions`<br>
+Default: `{}` i.e. default *zlib.brotliDecompress* options will be used
+
+It defines default options to be used in wrapped *zlib.brotliDecompress* call
 
 ## License
 

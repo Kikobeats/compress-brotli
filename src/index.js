@@ -4,6 +4,8 @@ const { promisify } = require('util')
 const JSONB = require('json-buffer')
 const zlib = require('zlib')
 
+const mergeOptions = require('./merge-options')
+
 const compress = promisify(zlib.brotliCompress)
 
 const decompress = promisify(zlib.brotliDecompress)
@@ -14,7 +16,8 @@ const createCompress = ({
   enable = true,
   serialize = JSONB.stringify,
   deserialize = JSONB.parse,
-  iltorb = () => require('iltorb')
+  compressOptions,
+  decompressOptions
 } = {}) => {
   if (!enable) {
     return { serialize, deserialize, decompress: identity, compress: identity }
@@ -23,14 +26,16 @@ const createCompress = ({
   return {
     serialize,
     deserialize,
-    compress: async data => {
+    compress: async (data, options = {}) => {
       if (data === undefined) return data
       const serializedData = serialize(data)
-      return compress(serializedData)
+      return compress(serializedData, mergeOptions(compressOptions, options))
     },
-    decompress: async data => {
+    decompress: async (data, options = {}) => {
       if (data === undefined) return data
-      return deserialize(await decompress(data))
+      return deserialize(
+        await decompress(data, mergeOptions(decompressOptions, options))
+      )
     }
   }
 }
