@@ -11,7 +11,7 @@ const {
 
 const test = require('ava')
 
-const { mergeOptions } = require('../../lib/mergeOptions')
+const mergeOptions = require('../src/merge-options')
 
 test('should skip empty inputs', t => {
   t.deepEqual(mergeOptions(), {})

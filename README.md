@@ -14,7 +14,6 @@
 - Handle edge cases (such as try to compress `undefined`).
 - JSON serialization/deserialization with Buffer support by default.
 - Easy tu customize (e.g., using [v8 serialization](https://nodejs.org/api/v8.html#v8_v8_serialize_value)).
-- Typescript typings
 
 ## Install
 
@@ -42,9 +41,10 @@ const { compress, decompress } = createCompress({
   deserialize: v8.deserialize
 })
 ```
-customize brotli operations with options
+customizing compress options:
 ```js
 const createCompress = require('compress-brotli')
+
 const {
   constants: {
     BROTLI_MODE_TEXT,

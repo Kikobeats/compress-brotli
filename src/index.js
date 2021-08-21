@@ -4,7 +4,7 @@ const { promisify } = require('util')
 const JSONB = require('json-buffer')
 const zlib = require('zlib')
 
-const { mergeOptions } = require('./lib/mergeOptions')
+const mergeOptions = require('./merge-options')
 
 const compress = promisify(zlib.brotliCompress)
 
@@ -34,7 +34,9 @@ const createCompress = ({
     },
     decompress: async (data, options = {}) => {
       if (data === undefined) return data
-      return deserialize(await decompress(data, mergeOptions(decompressOptions, options)))
+      return deserialize(
+        await decompress(data, mergeOptions(decompressOptions, options))
+      )
     }
   }
 }
