@@ -2,7 +2,7 @@
   "name": "compress-brotli",
   "description": "Simple cross Node.js inteface for using brotli compression",
   "homepage": "https://nicedoc.io/Kikobeats/compress-brotli",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "main": "src/index.js",
   "author": {
     "email": "josefrancisco.verdu@gmail.com",
@@ -39,10 +39,8 @@
     "ava": "latest",
     "ci-publish": "latest",
     "conventional-github-releaser": "latest",
-    "coveralls": "latest",
     "finepack": "latest",
     "git-authors-cli": "latest",
-    "git-dirty": "latest",
     "lint-staged": "latest",
     "npm-check-updates": "latest",
     "nyc": "latest",
@@ -62,7 +60,6 @@
   "scripts": {
     "clean": "rm -rf node_modules",
     "contributors": "(git-authors-cli && finepack && git add package.json && git commit -m 'build: contributors' --no-verify) || true",
-    "coverage": "nyc report --reporter=text-lcov | coveralls",
     "lint": "standard-markdown README.md && standard",
     "postrelease": "npm run release:tags && npm run release:github && (ci-publish || npm publish --access=public)",
     "prerelease": "npm run update:check && npm run contributors",
