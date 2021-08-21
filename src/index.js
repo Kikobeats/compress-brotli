@@ -16,7 +16,6 @@ const createCompress = ({
   enable = true,
   serialize = JSONB.stringify,
   deserialize = JSONB.parse,
-  iltorb = () => require('iltorb'),
   compressOptions,
   decompressOptions
 } = {}) => {
