@@ -3,7 +3,8 @@ import { stringify as JSONBstringify, parse as JSONBparse } from 'json-buffer'
 
 declare module 'compress-brotli'
 
-type CompressResult = Parameters<CompressCallback>[1]
+type CompressResult = Promise<Parameters<CompressCallback>[1]>
+type DecompressResult = Promise<ReturnType<typeof JSONBparse>>
 
 type Serialize<T> = (source: InputType) => T
 type Deserialize<T> = (source: CompressResult) => T
@@ -24,7 +25,7 @@ declare function createCompress<
   serialize: Serialize<SerializeResult>,
   deserialize: Deserialize<DeserializeResult>,
   compress: (data: InputType, optioins?: BrotliOptions) => CompressResult
-  decompress: (data: InputType, optioins?: BrotliOptions) => DeserializeResult
+  decompress: (data: InputType, optioins?: BrotliOptions) => DecompressResult
 }
 
 declare namespace createCompress {
