@@ -57,7 +57,7 @@ const operationCycleMacro = (
 
   const prevCallCount = brotliOperation.callCount
 
-  operation(data, callLevelOptions)
+  operation(data, callLevelOptions).catch(() => {})
 
   t.is(brotliOperation.callCount, prevCallCount + 1)
   t.deepEqual(brotliOperation.lastCall.args[1], invocationOption)
