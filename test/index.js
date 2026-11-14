@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 const v8 = require('v8')
 
 const createCompress = require('..')
@@ -22,17 +22,7 @@ const createCompress = require('..')
 
 test('default serializer/deserializer supports buffer', async t => {
   const value = Buffer.from([
-    0x68,
-    0x65,
-    0x6c,
-    0x6c,
-    0x6f,
-    0x20,
-    0x77,
-    0x6f,
-    0x72,
-    0x6c,
-    0x64
+    0x68, 0x65, 0x6c, 0x6c, 0x6f, 0x20, 0x77, 0x6f, 0x72, 0x6c, 0x64
   ])
   const { compress, decompress } = createCompress()
   const compressedData = await compress(value)

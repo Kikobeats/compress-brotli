@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 const zlib = require('zlib')
 
 const {
@@ -46,10 +46,8 @@ const operationCycleMacro = (
   callLevelOptions,
   factoryLevelOptions
 ) => {
-  const {
-    createCompress,
-    [`brotli${operationName}`]: brotliOperation
-  } = t.context
+  const { createCompress, [`brotli${operationName}`]: brotliOperation } =
+    t.context
   const { [operationName.toLowerCase()]: operation } = createCompress({
     [`${operationName.toLowerCase()}Options`]: factoryLevelOptions
   })
@@ -64,7 +62,6 @@ const operationCycleMacro = (
 }
 operationCycleMacro.title = (caseTitle = '', operationName) =>
   `${caseTitle} to ${operationName.toLowerCase()}`.trim()
-
 ;['Compress', 'Decompress'].forEach(operationName => {
   test(
     'by default should provide no options',

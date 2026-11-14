@@ -1,8 +1,8 @@
 # compress-brotli
 
-![Last version](https://img.shields.io/github/tag/Kikobeats/compress-brotli.svg?style=flat-square)
-[![Coverage Status](https://img.shields.io/coveralls/Kikobeats/compress-brotli.svg?style=flat-square)](https://coveralls.io/github/Kikobeats/compress-brotli)
-[![NPM Status](https://img.shields.io/npm/dm/compress-brotli.svg?style=flat-square)](https://www.npmjs.org/package/compress-brotli)
+[![Last version](https://img.shields.io/github/v/tag/Kikobeats/compress-brotli?style=flat-square)](https://github.com/Kikobeats/compress-brotli/releases)
+[![Coverage Status](https://img.shields.io/coverallsCoverage/github/Kikobeats/compress-brotli?style=flat-square)](https://coveralls.io/github/Kikobeats/compress-brotli)
+[![NPM Status](https://img.shields.io/npm/dm/compress-brotli?style=flat-square)](https://www.npmjs.com/package/compress-brotli)
 
 > Compress/Decompress using Brotli in a simple way.
 

@@ -1,6 +1,6 @@
 'use strict'
 
-const test = require('ava')
+const test = require('ava').default
 
 const JSONB = require('..')
 
@@ -17,8 +17,7 @@ const fixtures = {
     },
     {
       obj: Buffer.from('☃ ★ ☺ ♤ ✓ ♛ ∭'),
-      str:
-        '{"type":"Buffer","data":"base64:4piDIOKYhSDimLog4pmkIOKckyDimZsg4oit"}'
+      str: '{"type":"Buffer","data":"base64:4piDIOKYhSDimLog4pmkIOKckyDimZsg4oit"}'
     },
     { obj: Buffer.from(''), str: '{"type":"Buffer","data":""}' },
     {
